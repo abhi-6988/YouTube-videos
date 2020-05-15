@@ -656,6 +656,21 @@ class WhatAreWeLookingFor(GraphScene):
         )
         self.wait(5)
         
+    def get_change_in_area(self, area, t_val):
+        
+        func = lambda x,t: 2*x**2 - x**3 + 0.5*t*(x+1)
+        width = area[0].get_width()
+        diff_area = VGroup()
+
+        for index,x in enumerate(np.arange(0.5,2,width/self.x_axis.unit_size)):
+            height = (func(x,t_val) - func(x,1)) * self.y_axis.unit_size
+            rect = Rectangle(width=width, height=height,**self.diff_area_kwargs)
+            rect.next_to(area[index],UP,buff=0)
+            diff_area.add(rect)
+
+        diff_area.set_submobject_colors_by_gradient(*self.diff_area_cols)
+        return diff_area
+        
 
 
 class Thanks(Scene):
