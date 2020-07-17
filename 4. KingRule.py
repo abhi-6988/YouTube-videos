@@ -349,8 +349,8 @@ class KingRule(GraphScene):
 # shouldn't really be done with manim, prefer powerpoint and desmos instead
 class ExampleScene(Scene): 
     def construct(self):
-        self.camera.background_image = "FadedBoard2.png"
-        self.camera.init_background()
+#         self.camera.background_image = "FadedBoard2.png"
+#         self.camera.init_background()
 
         question = VGroup(
             TextMobject("Q. Evaluate "),
