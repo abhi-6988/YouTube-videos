@@ -33,7 +33,7 @@ class CameraOrientations(ThreeDScene):
         title = TextMobject("Euler Angles"," :")
         title[0].set_color_by_gradient(*colors)
         title.add(Underline(title[0]))
-        title.next_to(tracker_groups, UP, aligned_edge=LEFT).fix_in_frame()
+        title.next_to(tracker_groups, UP, aligned_edge=LEFT)
 
         group = VGroup(title, tracker_groups).to_corner(UL,0.25)
         group.add_background_rectangle("#111111",buff=0.2)
