@@ -4,6 +4,8 @@ from from_abhi.method_animations import plane_config, z_axis_config
 from from_abhi.misc_funcs import get_parametric_curve, c2p, p2c, flatten_rectangle, flatten_area, flatten_curve 
 
 
+# Made with the shaders branch of 3b1b-manim, try at your own risk.
+
 # TODO : Many methods can be functions that could be useful for
 # future projects and are also worth adding to source. 
  
