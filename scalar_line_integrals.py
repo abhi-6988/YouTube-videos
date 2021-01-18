@@ -64,7 +64,7 @@ class ScalarLineIntegralScene(ThreeDScene):
         self.t_axis = NumberLine([self.t_min, self.t_max], **self.t_axis_kwargs)
 
     def setup_axes(self): # bcz the ThreeDAxes's z_axis tip looks weird look for whatever reason
-        plane = NumberPlane(**self.plane_config)
+        plane = NumberPlane(**self.plane_config).shift(self.origin)
         z_axis = NumberLine(**self.z_axis_config).shift(plane.c2p(0, 0))
         z_axis.rotate_about_zero(axis = z_axis.get_unit_vector())
         z_axis.rotate_about_zero(axis=DOWN)
@@ -72,7 +72,7 @@ class ScalarLineIntegralScene(ThreeDScene):
             [num.rotate(PI/2, UP) for num in z_axis.numbers]
         self.plane = plane
         self.z_axis = z_axis
-        self.axes = VGroup(*self.plane.axes, self.z_axis).shift(self.origin)
+        self.axes = VGroup(*self.plane.axes, self.z_axis)
 
     def get_area(self, n_rects=None, **style):
         n_rects = n_rects or self.n_rects_for_area
